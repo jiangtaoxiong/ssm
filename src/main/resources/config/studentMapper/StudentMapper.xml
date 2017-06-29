@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lincoln.ssm.app.data.StudentMapper">
+	<insert id="addStu" parameterType="com.lincoln.ssm.entity.Student">
+		insert into student (username, password, email, grade)
+		 values (#{username}, #{password},#{email},#{grade})
+	<!-- 	 values (Student.username, Student.password,Student.email,Student.grade) -->
+	</insert>
+	 
+	
+	<select id="selectStu" resultType="com.lincoln.ssm.entity.Student">
+		select * from student
+	</select>
+	
+	<select id="findOneByExample" parameterType="com.lincoln.ssm.entity.Student" resultType="com.lincoln.ssm.entity.Student">
+		select * from student where username=#{username}
+	</select>
+</mapper>
+
